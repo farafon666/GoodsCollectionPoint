@@ -10,7 +10,7 @@
         <br>
         <h2>${user.name}</h2>
         <br>
-        Электоронная почта: <b>${user.email}</b>
+        Электронная почта: <b>${user.email}</b>
         <br>
         Номер телефона: <b>${user.phoneNumber}</b>
         <br>
