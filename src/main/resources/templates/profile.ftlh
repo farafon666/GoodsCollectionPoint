@@ -18,13 +18,21 @@
         <#if user.isAdmin()>
             <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
                href="/admin">
-                Панель администратора
+                Управление аккаунтами
+            </a><br>
+            <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
+               href="/">
+                Управление заказами
+            </a><br>
+            <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
+               href="/points">
+                Управление пунктами выдачи
+            </a><br>
+            <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
+               href="/my/products">
+                Добавить товары
             </a><br>
         </#if>
-        <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
-           href="/my/products">
-            Мои товары
-        </a>
         <form action="/logout" method="post">
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
             <button type="submit" style="text-align: center; width: 100%" class="btn btn-danger mb-2">
