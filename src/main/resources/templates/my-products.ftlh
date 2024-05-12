@@ -24,14 +24,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="searchCity">Город</label>
-                <select id="searchCity" required name="city" class="form-control">
-                    <option value="">Город не выбран</option>
-
-                    <option value="Москва">Москва</option>
-                    <option value="Красноярск">Красноярск</option>
-                    <option value="Казань">Казань</option>
-
+                <label for="searchPickupPoint">Пункт выдачи</label>
+                <select id="searchPickupPoint" required name="pickupPoint" class="form-control">
+                    <option value="">Пункт не выбран</option>
+                    <#list points as point>
+                        <option value="${point.id}">${point.name} - ${point.address}</option>
+                    </#list>
                 </select>
             </div>
             <div class="form-group">
@@ -80,7 +78,7 @@
                         <p class="card-text">${product.price} ₽</p>
                     </div>
                     <div class="card-footer">
-                        ${product.city}
+                        ${product.pickupPoint.name}
                     </div>
                 </div>
             </a>

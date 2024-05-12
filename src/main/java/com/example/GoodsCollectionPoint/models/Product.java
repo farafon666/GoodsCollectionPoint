@@ -17,12 +17,17 @@ public class Product {
     private String title;
     private String description;
     private Integer price;
-    private String city;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
     private List<Image> images = new ArrayList<>();
+
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @JoinColumn
     private User user;
+
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+    @JoinColumn
+    private PickupPoint pickupPoint;
+
     private Long previewImageId;
     private LocalDateTime dateOfCreated;
 

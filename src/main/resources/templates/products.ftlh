@@ -4,12 +4,12 @@
     <form method="get" action="/">
         <div class="form-row">
             <div class="form-group col-md-2">
-                <label for="searchCity">Город</label>
-                <select id="searchCity" class="form-control">
-                    <option value="">Город не выбран</option>
-                    <option value="Москва">Москва</option>
-                    <option value="Красноярск">Красноярск</option>
-                    <option value="Казань">Казань</option>
+                <label for="searchPickupPoint">Пункт выдачи</label>
+                <select id="searchPickupPoint" class="form-control">
+                    <option value="">Пункт выдачи не выбран</option>
+                    <#list points as point>
+                        <option value="${point.id}">${point.name} - ${point.address}</option>
+                    </#list>
                 </select>
             </div>
             <div class="form-group col-md-10">
@@ -25,7 +25,14 @@
         <#list products as product>
             <a href="/product/${product.id}" class="product-link">
                 <div class="card text-white bg-dark my-3 product">
-
+                    <div class="card-top">
+                        <form action="/order/add/${product.id}" method="post">
+                            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                            <button type="submit" class="btn btn-primary m-3">
+                                +
+                            </button>
+                        </form>
+                    </div>
                     <img src="/images/${product.previewImageId}"
                          class="card-img-top">
                     <div class="card-body">
@@ -33,7 +40,7 @@
                         <p class="card-text">${product.price} ₽</p>
                     </div>
                     <div class="card-footer">
-                        ${product.city}
+                        ${product.pickupPoint.name}
                     </div>
                 </div>
             </a>
