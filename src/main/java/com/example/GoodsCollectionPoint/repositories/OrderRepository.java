@@ -1,2 +1,12 @@
-package com.example.GoodsCollectionPoint.repositories;public class OrderRepository {
+package com.example.GoodsCollectionPoint.repositories;
+
+import com.example.GoodsCollectionPoint.models.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface OrderRepository extends JpaRepository<Order, Long> {
+    List<Order> findByUserId(Long id);
 }

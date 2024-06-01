@@ -48,21 +48,21 @@ public class ProductController {
                                 Product product,
                                 Principal principal) throws IOException {
         productService.saveProduct(principal, product, file1, file2, file3);
-        return "redirect:/my/products";
+        return "redirect:/add/products";
     }
 
     @PostMapping("/product/delete/{id}")
     public String deleteProduct(@PathVariable Long id, Principal principal) {
         productService.deleteProduct(productService.getUserByPrincipal(principal), id);
-        return "redirect:/my/products";
+        return "redirect:/add/products";
     };
 
-    @GetMapping("/my/products")
+    @GetMapping("/add/products")
     public String userProducts(Principal principal, Model model) {
         User user = productService.getUserByPrincipal(principal);
         model.addAttribute("user", user);
         model.addAttribute("products", user.getProducts());
         model.addAttribute("points", pickupPointService.getPickupPoints());
-        return "my-products";
+        return "add-products";
     }
 }

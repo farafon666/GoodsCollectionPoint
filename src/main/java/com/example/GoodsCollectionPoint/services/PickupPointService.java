@@ -22,6 +22,10 @@ public class PickupPointService {
         return  pickupPointRepository.findAll();
     }
 
+    public PickupPoint getPickupPointById(Long id) {
+        return pickupPointRepository.findById(id).orElseThrow(() -> new RuntimeException("Pickup point not found."));
+    }
+
     public void  savePickupPoint(PickupPoint point) {
         log.info("Creating new pickup point. Name: {}; Address: {}", point.getName(), point.getAddress());
         pickupPointRepository.save(point);

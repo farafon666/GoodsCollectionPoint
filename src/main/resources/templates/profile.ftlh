@@ -21,7 +21,7 @@
                 Управление аккаунтами
             </a><br>
             <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
-               href="/">
+               href="/orders/all">
                 Управление заказами
             </a><br>
             <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
@@ -29,8 +29,13 @@
                 Управление пунктами выдачи
             </a><br>
             <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
-               href="/my/products">
+               href="/add/products">
                 Добавить товары
+            </a><br>
+        <#else>
+            <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
+               href="/orders/user">
+                Мои заказы
             </a><br>
         </#if>
         <form action="/logout" method="post">
