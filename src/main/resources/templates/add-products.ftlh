@@ -1,6 +1,6 @@
 <#import "blocks/template.ftlh" as t>
 <@t.template user>
-    <h1 style="text-align: center">Мои товары</h1>
+    <h1 style="text-align: center">Товары</h1>
     <hr>
     <a class="btn btn-dark mt-3 mb-3" style="text-align: center; width: 100%"
        data-toggle="collapse" href="#collapseExample" role="button"
@@ -24,11 +24,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="searchPickupPoint">Пункт выдачи</label>
-                <select id="searchPickupPoint" required name="pickupPoint" class="form-control">
-                    <option value="">Пункт не выбран</option>
-                    <#list points as point>
-                        <option value="${point.id}">${point.name} - ${point.address}</option>
+                <label for="searchCategory">Категория</label>
+                <select id="searchCategory" required name="category" class="form-control">
+                    <option value="">Без категории</option>
+                    <#list categories as category>
+                        <option value="${category.id}">${category.name}</option>
                     </#list>
                 </select>
             </div>
@@ -78,7 +78,7 @@
                         <p class="card-text">${product.price} ₽</p>
                     </div>
                     <div class="card-footer">
-                        ${product.pickupPoint.name}
+                        ${product.category.name}
                     </div>
                 </div>
             </a>

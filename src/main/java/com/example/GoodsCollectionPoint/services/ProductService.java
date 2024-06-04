@@ -1,8 +1,10 @@
 package com.example.GoodsCollectionPoint.services;
 
+import com.example.GoodsCollectionPoint.models.Category;
 import com.example.GoodsCollectionPoint.models.Image;
 import com.example.GoodsCollectionPoint.models.Product;
 import com.example.GoodsCollectionPoint.models.User;
+import com.example.GoodsCollectionPoint.repositories.CategoryRepository;
 import com.example.GoodsCollectionPoint.repositories.ProductRepository;
 import com.example.GoodsCollectionPoint.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ import java.util.List;
 public class ProductService {
     private final ProductRepository productRepository;
     private final UserRepository userRepository;
+    private final CategoryRepository categoryRepository;
 
     public List<Product> getProducts(String title) {
         if (title != null) return productRepository.findByTitle(title);
@@ -69,6 +72,10 @@ public class ProductService {
         } else {
             log.error("Product with id {} is not found", id);
         }
+    }
+
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
     }
 
     private Image toImageEntity(MultipartFile file) throws IOException {

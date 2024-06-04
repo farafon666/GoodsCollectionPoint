@@ -29,8 +29,12 @@
                 Управление пунктами выдачи
             </a><br>
             <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
+               href="/categories">
+                Управление категориями
+            </a><br>
+            <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
                href="/add/products">
-                Добавить товары
+                Управление товарами
             </a><br>
         <#else>
             <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"

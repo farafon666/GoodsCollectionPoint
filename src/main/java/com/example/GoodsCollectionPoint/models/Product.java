@@ -26,7 +26,7 @@ public class Product {
 
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn
-    private PickupPoint pickupPoint;
+    private Category category;
 
     private Long previewImageId;
     private LocalDateTime dateOfCreated;

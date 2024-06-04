@@ -2,7 +2,6 @@ package com.example.GoodsCollectionPoint.controllers;
 
 import com.example.GoodsCollectionPoint.models.Product;
 import com.example.GoodsCollectionPoint.models.User;
-import com.example.GoodsCollectionPoint.services.PickupPointService;
 import com.example.GoodsCollectionPoint.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -20,13 +19,12 @@ import java.security.Principal;
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
-    private final PickupPointService pickupPointService;
 
     @GetMapping("/")
     public String products(@RequestParam(name = "searchWord", required = false) String title, Model model, Principal principal) {
         model.addAttribute("products", productService.getProducts(title));
         model.addAttribute("user", productService.getUserByPrincipal(principal));
-        model.addAttribute("points", pickupPointService.getPickupPoints());
+        model.addAttribute("categories", productService.getAllCategories());
         model.addAttribute("searchWord", title);
         return "products";
     }
@@ -62,7 +60,7 @@ public class ProductController {
         User user = productService.getUserByPrincipal(principal);
         model.addAttribute("user", user);
         model.addAttribute("products", user.getProducts());
-        model.addAttribute("points", pickupPointService.getPickupPoints());
+        model.addAttribute("categories", productService.getAllCategories());
         return "add-products";
     }
 }

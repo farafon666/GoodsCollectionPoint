@@ -4,16 +4,16 @@
     <form method="get" action="/">
         <div class="form-row">
             <div class="form-group col-md-2">
-                <label for="searchPickupPoint">Пункт выдачи</label>
-                <select id="searchPickupPoint" class="form-control">
-                    <option value="">Пункт выдачи не выбран</option>
-                    <#list points as point>
-                        <option value="${point.id}">${point.name} - ${point.address}</option>
+                <label for="searchCategory">Категория</label>
+                <select id="searchCategory" class="form-control">
+                    <option value="">Без категории</option>
+                    <#list categories as category>
+                        <option value="${category.id}">${category.name}</option>
                     </#list>
                 </select>
             </div>
             <div class="form-group col-md-10">
-                <label for="searchWord">Поиск по объявлениям</label>
+                <label for="searchWord">Поиск по товарам</label>
                 <input type="text" name="searchWord" <#if searchWord??>value="${searchWord}"</#if> class="form-control"
                        id="searchWord">
             </div>
@@ -43,7 +43,7 @@
                     <a href="/product/${product.id}" class="product-link">Информация</a>
                 </div>
                 <div class="card-footer">
-                    ${product.pickupPoint.name}
+                    ${product.category.name}
                 </div>
             </div>
         <#else>
