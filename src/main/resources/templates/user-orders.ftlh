@@ -17,7 +17,11 @@
                     <td>${order.id}</td>
                     <td>${order.pickupPoint.name}</td>
                     <td>${order.totalPrice} ₽</td>
-                    <td>${order.status}</td>
+                    <td>
+                        <#if order.status == "PENDING">Ожидает</#if>
+                        <#if order.status == "COMPLETED">Завершён</#if>
+                        <#if order.status == "CANCELLED">Отменён</#if>
+                    </td>
                 </tr>
             </#list>
             </tbody>

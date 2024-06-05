@@ -20,17 +20,21 @@
                     <td>${order.user.username}</td>
                     <td>${order.pickupPoint.name}</td>
                     <td>${order.totalPrice} ₽</td>
-                    <td>${order.status}</td>
+                    <td>
+                        <#if order.status == "PENDING">Ожидает</#if>
+                        <#if order.status == "COMPLETED">Завершён</#if>
+                        <#if order.status == "CANCELLED">Отменён</#if>
+                    </td>
                     <td>
                         <form action="/orders/updateStatus" method="post" style="display:inline;">
                             <input type="hidden" name="orderId" value="${order.id}">
                             <select name="status" class="form-control">
                                 <option value="PENDING"
-                                        <#if order.status == "PENDING">selected</#if>>PENDING</option>
+                                        <#if order.status == "PENDING">selected</#if>>Ожидает</option>
                                 <option value="COMPLETED"
-                                        <#if order.status == "COMPLETED">selected</#if>>COMPLETED</option>
+                                        <#if order.status == "COMPLETED">selected</#if>>Завершён</option>
                                 <option value="CANCELLED"
-                                        <#if order.status == "CANCELLED">selected</#if>>CANCELLED</option>
+                                        <#if order.status == "CANCELLED">selected</#if>>Отменён</option>
                             </select>
                             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                             <button type="submit" class="btn btn-primary btn-sm">Обновить</button>
