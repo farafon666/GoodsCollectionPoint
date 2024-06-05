@@ -32,7 +32,7 @@
                             <label for="quantity-${product.id}">Количество</label>
                             <input type="number" class="form-control" id="quantity-${product.id}" name="quantity" value="1" min="1">
                         </div>
-                        <button type="submit" class="btn btn-primary">Добавить в корзину</button>
+                        <button type="submit" class="btn btn-primary" style="margin-bottom: 0.5em">Добавить в корзину</button>
                     </form>
                 </div>
                 <img src="/images/${product.previewImageId}"
