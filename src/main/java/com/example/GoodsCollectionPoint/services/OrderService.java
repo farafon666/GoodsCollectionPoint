@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -19,11 +20,15 @@ public class OrderService {
     private final Cart cart;
 
     public List<Order> getOrders() {
-        return orderRepository.findAll();
+        return orderRepository.findAll().stream()
+                .sorted((o1, o2) -> o2.getDateOfCreated().compareTo(o1.getDateOfCreated()))
+                .collect(Collectors.toList());
     }
 
     public List<Order> getOrdersByUser(Long userId) {
-        return orderRepository.findByUserId(userId);
+        return orderRepository.findByUserId(userId).stream()
+                .sorted((o1, o2) -> o2.getDateOfCreated().compareTo(o1.getDateOfCreated()))
+                .collect(Collectors.toList());
     }
 
     public Order getOrderById(Long id) {

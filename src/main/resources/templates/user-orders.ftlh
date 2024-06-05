@@ -13,7 +13,9 @@
             </thead>
             <tbody>
             <#list orders as order>
-                <tr>
+                <tr class="<#if order.status == 'PENDING'>status-pending</#if>
+                           <#if order.status == 'COMPLETED'>status-completed</#if>
+                           <#if order.status == 'CANCELLED'>status-cancelled</#if>">
                     <td>${order.id}</td>
                     <td>${order.pickupPoint.name}</td>
                     <td>${order.totalPrice} ₽</td>

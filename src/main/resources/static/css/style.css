@@ -7,3 +7,15 @@
     color: #000 !important;
     text-decoration: none;
 }
+
+.status-pending {
+    background-color: #fff3cd;
+}
+
+.status-completed {
+    background-color: #d4edda;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+}
