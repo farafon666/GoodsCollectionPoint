@@ -21,6 +21,10 @@
         </div>
     </form>
     <hr>
+    <form method="get" action="/cart">
+        <button type="submit" class="btn btn-primary" style="width: 100%">Корзина</button>
+    </form>
+    <hr>
     <div class="card-columns">
         <#list products as product>
             <div class="card text-white bg-dark my-3 product">
