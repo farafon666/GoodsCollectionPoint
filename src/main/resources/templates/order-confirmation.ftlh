@@ -4,7 +4,9 @@
         <h2>Заказ #${order.id} успешно создан!</h2>
         <div class="mt-4">
             <p><strong>Пункт выдачи:</strong> ${order.pickupPoint.name}</p>
-            <p><strong>Статус заказа:</strong> ${order.status}</p>
+            <p><strong>Статус заказа:</strong>  <#if order.status == "PENDING">Ожидает</#if>
+                                                <#if order.status == "COMPLETED">Завершён</#if>
+                                                <#if order.status == "CANCELLED">Отменён</#if></p>
         </div>
         <table class="table mt-3">
             <thead>
